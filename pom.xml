@@ -25,23 +25,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-            <version>4.2.2</version>
-        </dependency>
-        <!-- Data base dependency start-->
+
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>test</scope>
+            <scope>runtime</scope>
         </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <!-- Data base dependency start-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -54,26 +43,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>4.2.2</version>
-                <configuration>
-                    <url>jdbc:mysql://localhost:3306/bookdb?useUnicode=true&amp;characterEncoding=utf-8&amp;timezone=UTC</url>
-                    <username>bookadmin</username>
-                    <password>password</password>
-                    <outputChangeLogFile>changelog.xml</outputChangeLogFile>
-                    <changeSetAuthor>KK</changeSetAuthor>
-                    <changelogSchemaName>bookdb</changelogSchemaName>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>${mysql.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
